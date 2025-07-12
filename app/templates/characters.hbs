@@ -5,7 +5,7 @@
   <LinkTo @route="search-chars"><i class="fa fa-search" aria-hidden="true"></i> Search Characters</LinkTo>  
 </div>
 
-<ul class="nav nav-tabs" role="tablist">
+<ul class="nav nav-tabs character-tabs" role="tablist">
   
   {{#each this.model.characters.group_names as |group|}}
       <li class="nav-item"><a data-bs-toggle="tab" class="nav-link {{group.active_class}}" href="#{{group.key}}">{{group.name}}</a></li>
