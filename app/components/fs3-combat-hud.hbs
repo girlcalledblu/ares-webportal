@@ -33,12 +33,10 @@
           {{else}}
             <LinkTo @route="char" @model={{c.name}} target="_blank">{{c.name}}</LinkTo>
           {{/if}}
-  		  {{#if c.is_in_vehicle?}}
+  		  {{#if c.is_in_vehicle}}
             ({{c.vehicle}}{{c.mount}})
   		  {{/if}}
-        </td>
-        
-        <td>
+          </br>
           <button {{on 'click' (fn this.showDamage c)}} class="btn-link">
             {{#if c.is_ko}}
             
