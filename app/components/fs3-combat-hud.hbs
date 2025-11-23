@@ -1,13 +1,11 @@
 
 <div class="table-responsive fs3-combat-hud">
 
-<table class="table">
+<table class="table table-striped">
 <thead>
-    <th>Name</th>
-    <th>Damage</th>
+    <th>Name (Vehicle)</th>
     <th>Weapon</th>
     <th>Armor</th>
-    <th>Vehicle/Mount</th>
     <th>Stance</th>
     <th>Action</th>
     <th></th>
@@ -18,7 +16,7 @@
 
 {{#each this.combat.teams as |t| }}    
 
-<tr><td colspan="8"><h3>Team {{t.team}}
+<tr><td colspan="6" class="combat-hud-team"><h3>Team {{t.team}}
   
   {{#if t.name}}
   ({{t.name}})
@@ -35,6 +33,9 @@
           {{else}}
             <LinkTo @route="char" @model={{c.name}} target="_blank">{{c.name}}</LinkTo>
           {{/if}}
+  		  {{#if c.is_in_vehicle?}}
+            ({{c.vehicle}}{{c.mount}})
+  		  {{/if}}
         </td>
         
         <td>
@@ -63,10 +64,6 @@
         </td>
         
         <td>
-            {{c.vehicle}}{{c.mount}}
-        </td>
-        
-        <td>
             {{c.stance}}
         </td>
         
@@ -76,7 +73,7 @@
         
         <td>
             {{#if c.can_edit}}
-              <TooltipButton @position="left" @message="Edit combatant." @icon="fa fa-edit" @route="combatant-edit" @model={{c.id}} @target="_blank" />
+              <TooltipButton @position="left" @message="Edit combatant." @icon="fa-duotone fa-sharp fa-pen-to-square" @route="combatant-edit" @model={{c.id}} @target="_blank" />
             {{/if}}
         </td>
     </tr>
