@@ -34,7 +34,7 @@
             <LinkTo @route="char" @model={{c.name}} target="_blank">{{c.name}}</LinkTo>
           {{/if}}
   		  {{#if c.is_in_vehicle?}}
-            ({{c.vehicle}}{{c.mount}})
+            Test ({{c.vehicle}}{{c.mount}})
   		  {{/if}}
           <br>
             <button {{on 'click' (fn this.showDamage c)}} class="btn-link">
