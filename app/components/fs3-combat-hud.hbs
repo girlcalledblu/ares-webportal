@@ -42,9 +42,11 @@
             <div class="combat-hud-combatant-damage">
               <b>DMG:</b>
               <button {{on "click" (fn this.showDamage c)}} class="btn-link">
-                <i class="fa fa-crosshairs" aria-label="Knocked Out"></i>
-                K O 
-                <i class="fa fa-crosshairs" aria-hidden="true"></i>
+                <div class="combat-hud-ko">
+                  <i class="fa fa-crosshairs" aria-label="Knocked Out"></i>
+                  K O 
+                  <i class="fa fa-crosshairs" aria-hidden="true"></i>
+                </div>
               </button>
             </div>
             {{else}}
