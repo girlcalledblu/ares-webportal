@@ -79,7 +79,7 @@
             {{c.action}}
         </td>
         
-        <td>
+        <td class="combat-hud-edit">
             {{#if c.can_edit}}
               <TooltipButton @position="left" @message="Edit combatant." @icon="fa-solid fa-pen-to-square" @route="combatant-edit" @model={{c.id}} @target="_blank" />
             {{/if}}
