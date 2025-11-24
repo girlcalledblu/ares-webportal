@@ -38,19 +38,25 @@
             {{c.vehicle}}{{c.mount}}
   		  {{/if}}
             </div>
-            <div class="combat-hud-combatant-damage {{if (or c.is_ko (gt (count c.damage_boxes) 0)) "has-content"}}">
+            {{#if c.is_ko}}
+            <div class="combat-hud-combatant-damage">
               <button {{on "click" (fn this.showDamage c)}} class="btn-link">
-                {{#if c.is_ko}}
-                <i class="fa fa-crosshairs" aria-label="Knocked Out"></i>
-                 K O
-                <i class="fa fa-crosshairs" aria-hidden="true"></i>
-               {{else}}
-                {{#each c.damage_boxes}}
-                <i class="fa fa-heartbeat combat-damage" aria-label="Damage Box"></i>
-                {{/each}}
-                {{/if}}
+              <i class="fa fa-crosshairs" aria-label="Knocked Out"></i>
+              K O 
+              <i class="fa fa-crosshairs" aria-hidden="true"></i>
               </button>
             </div>
+            {{else}}
+              {{#if c.damage_boxes.length}}
+              <div class="combat-hud-combatant-damage">
+                <button {{on "click" (fn this.showDamage c)}} class="btn-link">
+                  {{#each c.damage_boxes}}
+                   <i class="fa fa-heartbeat combat-damage" aria-label="Damage Box"></i>
+                  {{/each}}
+                </button>
+              </div>
+             {{/if}}
+          {{/if}}
           </div>
         </td>
         
