@@ -28,27 +28,30 @@
     
     <tr>
         <td>
-          {{#if c.is_npc}}
+          <div class="combat-hud-combatant">
+            <div class="combat-hud-combatant-name">{{#if c.is_npc}}
             {{c.name}}
           {{else}}
             <LinkTo @route="char" @model={{c.name}} target="_blank">{{c.name}}</LinkTo>
           {{/if}}
-  		  {{#if c.is_in_vehicle?}}
-            Test ({{c.vehicle}}{{c.mount}})
+  		  {{#if c.is_in_vehicle}}
+            {{c.vehicle}}{{c.mount}}
   		  {{/if}}
-            <button {{on 'click' (fn this.showDamage c)}} class="btn-link">
-            {{#if c.is_ko}}
-              <br>
-                <i class="fa fa-crosshairs" aria-label="Knocked Out"></i>
-                K O 
-                <i class="fa fa-crosshairs" aria-hidden="true"></i>
-            {{else}}
-              <br>
-                {{#each c.damage_boxes}}
-                    <i class="fa fa-heartbeat combat-damage" aria-label="Damage Box"></i>
-                {{/each}}
-            {{/if}}
-          </button>
+            </div>
+            <div class="combat-hud-combatant-damage">
+              <button {{on 'click' (fn this.showDamage c)}} class="btn-link">
+              {{#if c.is_ko}}
+                  <i class="fa fa-crosshairs" aria-label="Knocked Out"></i>
+                  K O 
+                  <i class="fa fa-crosshairs" aria-hidden="true"></i>
+              {{else}}
+                  {{#each c.damage_boxes}}
+                      <i class="fa fa-heartbeat combat-damage" aria-label="Damage Box"></i>
+                  {{/each}}
+              {{/if}}
+              </button>
+            </div>
+          </div>
         </td>
         
         <td>
