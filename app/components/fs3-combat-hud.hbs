@@ -14,7 +14,8 @@
 
 <tbody>
 
-{{#each this.combat.teams as |t| }}    
+{{#each this.combat.teams as |t| }}
+    {{log "combatant" c}}
 
 <tr><td colspan="6" class="combat-hud-team"><h3>Team {{t.team}}
   
@@ -34,7 +35,9 @@
           {{else}}
             <LinkTo @route="char" @model={{c.name}} target="_blank">{{c.name}}</LinkTo>
           {{/if}}
-            ({{c.vehicle}}{{c.mount}})
+            {{#if c._is_in_vehicle}}
+              ({{c.vehicle}}{{c.mount}})
+            {{/if}}
             </div>
             {{#if c.is_ko}}
             <div class="combat-hud-combatant-damage">
