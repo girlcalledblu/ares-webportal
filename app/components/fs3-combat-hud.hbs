@@ -42,18 +42,20 @@
             </div>
             {{#if c.is_ko}}
             <div class="combat-hud-combatant-damage">
+              DMG:
               <button {{on "click" (fn this.showDamage c)}} class="btn-link">
-              <i class="fa fa-crosshairs" aria-label="Knocked Out"></i>
-              K O 
-              <i class="fa fa-crosshairs" aria-hidden="true"></i>
+                <i class="fa fa-crosshairs" aria-label="Knocked Out"></i>
+                K O 
+                <i class="fa fa-crosshairs" aria-hidden="true"></i>
               </button>
             </div>
             {{else}}
               {{#if c.damage_boxes.length}}
               <div class="combat-hud-combatant-damage">
+                DMG:
                 <button {{on "click" (fn this.showDamage c)}} class="btn-link">
                   {{#each c.damage_boxes as |r index|}}
-                   <i class="fa-solid fa-heart-crack combat-damage-{{index}}" aria-label="Damage Box"></i>
+                    <i class="fa-solid fa-heart-crack combat-damage-{{index}}" aria-label="Damage Box"></i>
                   {{/each}}
                 </button>
               </div>
