@@ -34,9 +34,7 @@
           {{else}}
             <LinkTo @route="char" @model={{c.name}} target="_blank">{{c.name}}</LinkTo>
           {{/if}}
-  		  {{#if c.is_in_vehicle}}
-            {{c.vehicle}}{{c.mount}}
-  		  {{/if}}
+            ({{c.vehicle}}{{c.mount}})
             </div>
             {{#if c.is_ko}}
             <div class="combat-hud-combatant-damage">
