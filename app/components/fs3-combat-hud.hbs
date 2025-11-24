@@ -15,7 +15,6 @@
 <tbody>
 
 {{#each this.combat.teams as |t| }}
-    {{log "combatant" c}}
 
 <tr><td colspan="6" class="combat-hud-team"><h3>Team {{t.team}}
   
@@ -26,6 +25,8 @@
 </h3></td></tr>
 
     {{#each t.combatants as |c| }}
+  
+    {{log "combatant" c}}
     
     <tr>
         <td>
