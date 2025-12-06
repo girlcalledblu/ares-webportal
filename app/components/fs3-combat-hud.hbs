@@ -4,11 +4,11 @@
 <table class="table table-striped">
 <thead>
     <th class="combat-header-name">Name (Vehicle)</th>
+    <th class="combat-header-edit"></th>
     <th class="combat-header-weapon">Weapon</th>
     <th class="combat-header-armor">Armor</th>
     <th class="combat-header-stance">Stance</th>
     <th class="combat-header-action">Action</th>
-    <th class="combat-header-edit"></th>
 
 </thead>
 
@@ -63,6 +63,11 @@
           {{/if}}
           </div>
         </td>
+        <td class="combat-hud-edit">
+            {{#if c.can_edit}}
+              <TooltipButton @position="left" @message="Edit combatant." @icon="fa-solid fa-pen-to-square" @route="combatant-edit" @model={{c.id}} @target="_blank" />
+            {{/if}}
+        </td>
         
         <td>
             {{c.weapon}} {{c.ammo}}
@@ -79,11 +84,6 @@
             {{c.action}}
         </td>
         
-        <td class="combat-hud-edit">
-            {{#if c.can_edit}}
-              <TooltipButton @position="left" @message="Edit combatant." @icon="fa-solid fa-pen-to-square" @route="combatant-edit" @model={{c.id}} @target="_blank" />
-            {{/if}}
-        </td>
     </tr>
     
     {{/each}}
